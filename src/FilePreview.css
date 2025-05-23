@@ -1,0 +1,64 @@
+.file-preview-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 18px;
+  border-radius: 10px;
+  max-width: 380px;
+  margin: 16px 0;
+  font-family: 'Inter', sans-serif;
+  transition: box-shadow 0.3s ease;
+}
+
+.file-preview-container.sender {
+  background-color: #d1ffe0; /* greenish */
+  align-self: flex-end;
+}
+
+.file-preview-container.receiver {
+  background-color: #e6e6e6; /* reddish */
+  align-self: flex-start;
+}
+
+/* .file-preview-container:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+} */
+
+.file-preview-container.sender .file-preview-name {
+  font-weight: bold;
+  color: #085f00;
+}
+
+.file-preview-container.receiver .file-preview-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.file-preview-name {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15px;
+}
+
+.file-download-icon {
+  font-size: 20px;
+  color: #333;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.file-download-icon:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.file-preview-image {
+  max-width: 100%;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}

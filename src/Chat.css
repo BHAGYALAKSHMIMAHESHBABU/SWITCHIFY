@@ -1,0 +1,304 @@
+:root {
+  --bg-color: #f4f4f9;
+  --message-bg: #e1e1e1;
+  --text-color: #333;
+  --sent-bg: #52A6BB;
+  --header-bg: #f9f9f9;
+  --input-bg: #f9f9f9;
+  --border-color: #ddd;
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  --disabled-bg: #ccc;
+  --text-muted: #aaa;
+  --file-link-color: #0066cc;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1f1f1f;
+  --message-bg: #2a2a2a;
+  --text-color: #f4f4f4;
+  --sent-bg: #3a7d92;
+  --header-bg: #2c2c2c;
+  --input-bg: #3a3a3a;
+  --border-color: #444;
+  --button-bg: #005b8f;
+  --button-hover: #004466;
+  --disabled-bg: #555;
+  --text-muted: #bbb;
+  --file-link-color: #66b2ff;
+}
+
+/* Chat container */
+.chat {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  flex: 1;
+  height: 90vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+/* Member info bar */
+.member-info {
+  display: flex;
+  align-items: center;
+  padding: 14px 22px;
+  background-color: var(--header-bg);
+  border-bottom: 2px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  gap: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.member-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.member-info .name {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+/* Message area */
+.messages-area {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: #ffffff;
+  border-bottom: 2px solid var(--border-color);
+  scroll-behavior: smooth;
+  max-height: 80vh;
+}
+
+/* Individual message layout */
+.message {
+  display: flex;
+  flex-direction: column;
+  margin: 12px 0;
+  max-width: 75%;
+  padding: 12px;
+  border-radius: 12px;
+  word-wrap: break-word;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  position: relative;
+  box-sizing: border-box;
+  flex-grow: 0;
+}
+
+/* Sent message styling */
+.message.sent {
+  background-color: var(--sent-bg);
+  color: white;
+  align-self: flex-end; /* Align sent messages to the right */
+  text-align: right;
+  border-top-right-radius: 0;
+  margin-left: auto; /* Align to the right */
+}
+
+/* Received message styling */
+.message.received {
+  background-color: var(--message-bg);
+  color: var(--text-color);
+  align-self: flex-start; /* Align received messages to the left */
+  text-align: left;
+  border-top-left-radius: 0;
+  margin-right: auto; /* Align to the left */
+}
+
+/* Message sender's name */
+.message-sender {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 5px;
+}
+
+.message + .message {
+  margin-top: 16px;
+}
+
+.message-content {
+  word-wrap: break-word;
+  max-width: 90%;
+}
+
+/* Timestamp */
+.message-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  align-self: flex-end;
+  text-align: right;
+}
+
+/* File download link */
+.file-link {
+  font-size: 0.9rem;
+  color: var(--file-link-color);
+  text-decoration: none;
+}
+
+.file-link:hover {
+  text-decoration: underline;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.typing-indicator::after {
+  content: '...';
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* Send message section */
+.send-message {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color: var(--header-bg);
+  border-top: 2px solid var(--border-color);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.message-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  resize: vertical;
+  min-height: 50px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.message-input:focus {
+  border-color: var(--button-bg);
+  outline: none;
+}
+
+.message-input:disabled {
+  background-color: var(--disabled-bg);
+  cursor: not-allowed;
+}
+
+.send-message input[type="file"] {
+  margin-right: 10px;
+}
+
+.send-message button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--button-bg);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.send-message button:hover {
+  background-color: var(--button-hover);
+}
+
+.send-message button:disabled {
+  background-color: var(--disabled-bg);
+  cursor: not-allowed;
+}
+
+/* Selected file name */
+.selected-file {
+  background-color: var(--input-bg);
+  padding: 6px 10px;
+  border-radius: 6px;
+  margin: 10px 15px;
+  color: var(--text-color);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .chat {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .messages-area {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .send-message button {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+  }
+}
+
+
+.chat {
+  /* Common styles for both modes */
+}
+
+.chat.friendly {
+  background-color: #ededed;
+  /* Friendly mode styles (e.g., brighter, colorful, casual) */
+}
+
+.chat.professional {
+  background-color: #ffffff;
+  /* Professional mode styles (e.g., more formal, minimalistic) */
+}
+
+.mode-toggle button {
+  margin: 10px;
+  padding: 8px 16px;
+  background-color: #008cba;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.mode-toggle button:hover {
+  background-color: #005f6a;
+}
+
+/* Additional friendly/professional styles for messages, avatars, etc. */
+/* Dark Mode Send Message Button */
+/* .dark-mode .send-message button {
+  background-color: #232323;
+  color: white;
+}
+
+/* Light Mode Send Message Button 
+.light-mode .send-message button {
+  background-color: #6a6ce4;
+  color: white;
+} */

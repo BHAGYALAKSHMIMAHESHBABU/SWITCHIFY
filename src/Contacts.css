@@ -1,0 +1,149 @@
+/* Original Styles */
+
+.contacts-background {
+  background-color: #FFE7E7;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.add-contact-bar {
+  display: flex;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.add-contact-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-contact-bar button {
+  padding: 10px 20px;
+  background-color: #6a6ce4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-card {
+  background: transparent;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contact-name {
+  font-size: 24px;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #000000;
+}
+
+.delete-btn {
+  background-color: #E48080;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.chat-box {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.messages-area {
+  flex-grow: 1;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.send-message {
+  display: flex;
+  gap: 10px;
+}
+
+.send-message input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.send-message button {
+  background-color: #6a6ce4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.dark-mode .add-contact-bar button {
+  background-color: #232323;
+  color: white;
+}
+.dark-mode .contact-name {
+  color: white;
+}
+
+.contact-card-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-avatar {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Light Mode Button
+.light-mode .add-contact-bar button {
+  background-color: #6a6ce4; /* Keep original color for light mode 
+  color: white;
+}
+.professional-mode .add-contact-bar button {
+  background-color: #dbd337;
+  color: #000000;
+  font-weight: bold;
+} */
+
+/* Dark Mode Send Message Button */
+/* .dark-mode .send-message button {
+  background-color: #232323;
+  color: white;
+}
+
+/* Light Mode Send Message Button 
+.light-mode .send-message button {
+  background-color: #6a6ce4;
+  color: white;
+} */
